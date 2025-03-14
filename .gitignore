@@ -1,0 +1,11 @@
+# Ignore Node.js dependencies
+node_modules/
+npm-debug.log
+
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Ignore AWS credentials
+.aws/
