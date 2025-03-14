@@ -41,3 +41,8 @@ jobs:
           sed -i "s|<IMAGE_TAG>|$IMAGE_TAG|g" k8s/deployment.yaml
           kubectl apply -f k8s/
           kubectl rollout status deployment/node-app
+
+      - name: Get LoadBalancer URL
+        run: |
+          sleep 60  # Wait for LoadBalancer to be created
+          kubectl get svc node-app-service -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'
